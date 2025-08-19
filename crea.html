@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Road map – Créa : Photo, Guitare & DJ</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <h1><img src="assets/img/logo.svg" alt="" style="vertical-align:middle;margin-right:.5rem"/>Road map – Créa : Photo, Guitare & DJ</h1>
+    <nav>
+      <a class="navlink" href="index.html">Accueil</a>
+      <a class="navlink" href="flow.html">Flow</a>
+      <a class="navlink" href="timeline.html">Timeline</a>
+      <a class="navlink" href="focus.html">Focus</a>
+      <a class="navlink" href="edu.html">Sciences de l’éducation</a>
+      <a class="navlink" href="oulpan.html">Oulpan hébreu</a>
+      <a class="navlink" href="vae.html">VAE Paris 8</a>
+      <a class="navlink" href="master.html">Candidature Master (HUJI)</a>
+      <a class="navlink" href="driving.html">Permis auto & moto</a>
+      <a class="navlink" href="crea.html">Créa : Photo, Guitare & DJ</a>
+      <a class="navlink" href="ong.html">Projet ONG</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="subtitle">Photographie, Guitare et DJ — entraînements, projets et routines rassemblés.</div>
+  
+
+<div class="card">
+  <div class="month"><h2>Objectifs hebdo</h2><span class="badge">Reset auto lundi</span></div>
+  <div class="section">Suivi</div>
+  <ul id="weeklyList"></ul>
+  <div class="card-tools">
+    <a class="btn small" id="weeklyReset">Remettre à zéro (cette semaine)</a>
+  </div>
+</div>
+
+
+<div id="weeklyBanner" class="card" style="border:1px dashed #f59e0b; background:#0b1220; margin-bottom:1rem;">
+  <div class="month"><h2>Rappel hebdo</h2><span class="badge">Dimanche</span></div>
+  <div class="muted" id="weeklyBannerText">Tout est OK pour l’instant.</div>
+</div>
+
+<div class="subtitle">Road map – Photographie</div>
+<div class="toolbar">
+  <input class="search" type="search" placeholder="Rechercher">
+  <a class="btn expand">Tout ouvrir</a>
+  <a class="btn collapse">Tout fermer</a>
+  <a class="btn reset">Réinitialiser progression</a>
+  <a class="btn print">Exporter en PDF</a>
+</div>
+<div class="toolbar">
+  <div style="flex:1 1 320px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem;">
+      <span>Progression globale</span>
+      <strong class="globalPct">0%</strong>
+    </div>
+    <div class="barwrap"><div class="bar globalBar" style="width:0%"></div></div>
+  </div>
+</div>
+<div class="grid">
+  
+        <div class="card">
+          <div class="month"><h2>Bases techniques</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Bases techniques::0"> <span>Triangle d’exposition (ISO, ouverture, vitesse)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Bases techniques::1"> <span>Balance des blancs & profils d’image</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Bases techniques::2"> <span>Mise au point (AF-S/AF-C, collimateurs)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Bases techniques::3"> <span>Focales & profondeur de champ</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Bases techniques::4"> <span>Formats (RAW vs JPEG)</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="month"><h2>Pratique & styles</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Pratique & styles::0"> <span>Portrait (lumière naturelle, réflecteur)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Pratique & styles::1"> <span>Reportage / événement</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Pratique & styles::2"> <span>Faible lumière (hauts ISO, trépied)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Pratique & styles::3"> <span>Composition (règle des tiers, lignes directrices)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Pratique & styles::4"> <span>Projet perso (série de 10 photos)</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="month"><h2>Post-traitement & workflow</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Post-traitement & workflow::0"> <span>Import & tri (culling)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Post-traitement & workflow::1"> <span>Corrections de base (expo, contraste, WB)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Post-traitement & workflow::2"> <span>Retouche locale (masques)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Post-traitement & workflow::3"> <span>Export & catalogue</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="photo::Post-traitement & workflow::4"> <span>Backup 3-2-1</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+
+<div class="card">
+  <div class="month"><h2>Mini-projet (2 semaines)</h2><span class="badge">Série 10 photos</span></div>
+  <ul>
+    <li><strong>Brief :</strong> thème (ex: “bénévolat & jeunesse”), 10 images cohérentes, 1 format homogène.</li>
+    <li><strong>S1 :</strong> repérage lieux/lumière, moodboard, 2 sessions de prise de vue.</li>
+    <li><strong>S2 :</strong> tri/sélection, traitement, export web & impression A4.</li>
+  </ul>
+  <div class="section">Checklist</div>
+  <ul>
+    <li>Balance des blancs équilibrée sur la série</li>
+    <li>Expo cohérente (histogramme sans écrêtage important)</li>
+    <li>Nettoyage capteur/lentille si taches visibles</li>
+    <li>Droits à l’image (si portraits reconnaissables)</li>
+    <li>Backup 3-2-1 des originaux</li>
+  </ul>
+</div>
+</div>
+<script type="module">
+  import { initChecklist } from './assets/js/app.js';
+  initChecklist(document.querySelector('main'), 'photo_progress');
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+<script type="module">
+  import {{ loadProgress, saveProgress }} from './assets/js/app.js';
+  const KEY = 'photo_weekly';
+  const PRESET = [{"id": "shoots", "title": "Sessions de prise de vue", "target": 1, "unit": "session"}, {"id": "shots", "title": "Photos capturées", "target": 50, "unit": "photos", "step2": 10}, {"id": "edit", "title": "Tri/retouche", "target": 1, "unit": "session"}];
+  const list = document.getElementById('weeklyList');
+  function monday(d){{ const dt=new Date(d); const day=(dt.getDay()+6)%7; dt.setDate(dt.getDate()-day); dt.setHours(0,0,0,0); return dt; }}
+  function weekKey(){{ return monday(new Date()).toISOString().slice(0,10); }}
+  function load(){{ let s=loadProgress(KEY); if(!s || s.week!==weekKey()) s={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; return s; }}
+  let STATE = load();
+  function save(){{ saveProgress(KEY, STATE); render(); }}
+  function render(){{ list.innerHTML = PRESET.map(p=>{{
+      const val = STATE.items[p.id]||0;
+      const pct = Math.min(100, Math.round(100*val/p.target));
+      return `<li><strong>${{p.title}}</strong> — ${{val}} / ${{p.target}} ${{p.unit}}
+        <div class='barwrap'><div class='bar' style='width:${{pct}}%'></div></div>
+        <div class='links'><a class='btn small' data-inc='${{p.id}}'>+1</a>${{p.step2?` <a class='btn small' data-inc2='${{p.id}}'>+${{p.step2}}</a>`:''}</div></li>`;
+    }}).join('');
+    list.querySelectorAll('[data-inc]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc'); STATE.items[id]=(STATE.items[id]||0)+1; save(); }}));
+    list.querySelectorAll('[data-inc2]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc2'); STATE.items[id]=(STATE.items[id]||0)+10; save(); }}));
+  }}
+  document.getElementById('weeklyReset')?.addEventListener('click', ()=>{{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }});
+  if(STATE.week!==weekKey()){{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }}
+  render();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+<script type="module">
+  // Weekly reminder: if Sunday and objectives < 100%, show banner
+  (function(){
+    const isSunday = (new Date().getDay()) === 0; // 0=Sunday
+    const list = document.getElementById('weeklyList');
+    const banner = document.getElementById('weeklyBanner');
+    const txt = document.getElementById('weeklyBannerText');
+    if(!list || !banner || !txt) return;
+    if(!isSunday){ banner.classList.add('hidden'); return; }
+    const bars = list.querySelectorAll('.barwrap .bar');
+    let allOk = true;
+    bars.forEach(b=>{
+      const w = parseInt(b.style.width||'0');
+      if(w < 100) allOk = false;
+    });
+    if(allOk){
+      banner.style.borderColor = '#34d399';
+      txt.textContent = '✅ Objectifs hebdo atteints. Bravo !';
+    }else{
+      banner.style.borderColor = '#f59e0b';
+      txt.textContent = '⏰ Il reste des objectifs à compléter cette semaine.';
+    }
+  })();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+
+<div class="card">
+  <div class="month"><h2>Objectifs hebdo</h2><span class="badge">Reset auto lundi</span></div>
+  <div class="section">Suivi</div>
+  <ul id="weeklyList"></ul>
+  <div class="card-tools">
+    <a class="btn small" id="weeklyReset">Remettre à zéro (cette semaine)</a>
+  </div>
+</div>
+
+
+<div id="weeklyBanner" class="card" style="border:1px dashed #f59e0b; background:#0b1220; margin-bottom:1rem;">
+  <div class="month"><h2>Rappel hebdo</h2><span class="badge">Dimanche</span></div>
+  <div class="muted" id="weeklyBannerText">Tout est OK pour l’instant.</div>
+</div>
+
+<div class="subtitle">Road map – Guitare</div>
+<div class="toolbar">
+  <input class="search" type="search" placeholder="Rechercher">
+  <a class="btn expand">Tout ouvrir</a>
+  <a class="btn collapse">Tout fermer</a>
+  <a class="btn reset">Réinitialiser progression</a>
+  <a class="btn print">Exporter en PDF</a>
+</div>
+<div class="toolbar">
+  <div style="flex:1 1 320px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem;">
+      <span>Progression globale</span>
+      <strong class="globalPct">0%</strong>
+    </div>
+    <div class="barwrap"><div class="bar globalBar" style="width:0%"></div></div>
+  </div>
+</div>
+<div class="grid">
+  
+        <div class="card">
+          <div class="month"><h2>Technique & théorie</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Technique & théorie::0"> <span>Accords ouverts (C, G, D, Em, Am)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Technique & théorie::1"> <span>Rythmiques de base (down/up, métronome)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Technique & théorie::2"> <span>Gammes pentatoniques (position 1)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Technique & théorie::3"> <span>Enchaînements I–V–vi–IV</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Technique & théorie::4"> <span>Lecture grille & repères manche</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="month"><h2>Répertoire & jeu</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Répertoire & jeu::0"> <span>3 morceaux simples (accords ouverts)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Répertoire & jeu::1"> <span>1 morceau avec barrés (F, Bm)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Répertoire & jeu::2"> <span>Impro pentatonique sur backing track</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Répertoire & jeu::3"> <span>Travail d’oreille : relever un riff</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Répertoire & jeu::4"> <span>Enregistrement audio maison</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="month"><h2>Maintenance & setup</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Maintenance & setup::0"> <span>Changement de cordes</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Maintenance & setup::1"> <span>Réglage action & intonation basiques</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="guitar::Maintenance & setup::2"> <span>Entretien (nettoyage, hydratation touche)</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+
+<div class="card">
+  <div class="month"><h2>Playlists d’entraînement</h2><span class="badge">10–20 min/jour</span></div>
+  <ul>
+    <li><strong>Routine 1 (10 min) :</strong> 2 min accords ouverts • 3 min rythmiques • 3 min transitions I–V–vi–IV • 2 min métronome 70–90 BPM.</li>
+    <li><strong>Routine 2 (15 min) :</strong> 5 min pentatonique (position 1) • 5 min bends/hammer-on • 5 min backing track (blues/rock).</li>
+    <li><strong>Routine 3 (20 min) :</strong> 8 min morceau accords • 6 min barrés • 6 min impro pentatonique.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="month"><h2>Plan 4 semaines</h2><span class="badge">Progressif</span></div>
+  <ul>
+    <li><strong>S1 :</strong> Accords ouverts + transitions (10 min/j), métronome 70–80 BPM, 1 morceau simple.</li>
+    <li><strong>S2 :</strong> Pentatonique pos.1 (5 min/j) + rythmiques (5–10 min), 2 morceaux.</li>
+    <li><strong>S3 :</strong> Barrés (F/Bm) 10 min/j + impro pentatonique 5–10 min/j, 1 enregistrement audio.</li>
+    <li><strong>S4 :</strong> Mini set 10–12 min enchaînant 3 morceaux + 2 min impro, enregistrement & feedback.</li>
+  </ul>
+</div>
+
+</div>
+<script type="module">
+  import { initChecklist } from './assets/js/app.js';
+  initChecklist(document.querySelector('main'), 'guitar_progress');
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+<script type="module">
+  // Weekly objectives (fixed presets). Reset Monday.
+  import {{ loadProgress, saveProgress }} from './assets/js/app.js';
+  const KEY = 'guitar_weekly';
+  const PRESET = [{"id": "practice_hours", "title": "Pratique guitare", "target": 3, "unit": "h", "step2": 1}, {"id": "songs_learn", "title": "Morceaux étudiés", "target": 2, "unit": "morceaux"}];
+  const list = document.getElementById('weeklyList');
+  function monday(d){{ const dt=new Date(d); const day=(dt.getDay()+6)%7; dt.setDate(dt.getDate()-day); dt.setHours(0,0,0,0); return dt; }}
+  function weekKey(){{ return monday(new Date()).toISOString().slice(0,10); }}
+  function load(){{ let s=loadProgress(KEY); if(!s || s.week!==weekKey()) s={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; return s; }}
+  let STATE = load();
+  function save(){{ saveProgress(KEY, STATE); render(); }}
+  function render(){{ list.innerHTML = PRESET.map(p=>{{
+      const val = STATE.items[p.id]||0;
+      const pct = Math.min(100, Math.round(100*val/p.target));
+      return `<li><strong>${{p.title}}</strong> — ${{val}} / ${{p.target}} ${{p.unit}}
+        <div class='barwrap'><div class='bar' style='width:${{pct}}%'></div></div>
+        <div class='links'><a class='btn small' data-inc='${{p.id}}'>+1</a>${{p.step2?` <a class='btn small' data-inc2='${{p.id}}'>+${{p.step2}}</a>`:''}}</div></li>`;
+    }}).join('');
+    list.querySelectorAll('[data-inc]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc'); STATE.items[id]=(STATE.items[id]||0)+1; save(); }}));
+    list.querySelectorAll('[data-inc2]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc2'); STATE.items[id]=(STATE.items[id]||0)+1; save(); }}));
+  }}
+  document.getElementById('weeklyReset')?.addEventListener('click', ()=>{{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }});
+  if(STATE.week!==weekKey()){{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }}
+  render();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+<script type="module">
+  // Weekly reminder: if Sunday and objectives < 100%, show banner
+  (function(){
+    const isSunday = (new Date().getDay()) === 0; // 0=Sunday
+    const list = document.getElementById('weeklyList');
+    const banner = document.getElementById('weeklyBanner');
+    const txt = document.getElementById('weeklyBannerText');
+    if(!list || !banner || !txt) return;
+    if(!isSunday){ banner.classList.add('hidden'); return; }
+    const bars = list.querySelectorAll('.barwrap .bar');
+    let allOk = true;
+    bars.forEach(b=>{
+      const w = parseInt(b.style.width||'0');
+      if(w < 100) allOk = false;
+    });
+    if(allOk){
+      banner.style.borderColor = '#34d399';
+      txt.textContent = '✅ Objectifs hebdo atteints. Bravo !';
+    }else{
+      banner.style.borderColor = '#f59e0b';
+      txt.textContent = '⏰ Il reste des objectifs à compléter cette semaine.';
+    }
+  })();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+
+<div class="card">
+  <div class="month"><h2>Objectifs hebdo</h2><span class="badge">Reset auto lundi</span></div>
+  <div class="section">Suivi</div>
+  <ul id="weeklyList"></ul>
+  <div class="card-tools">
+    <a class="btn small" id="weeklyReset">Remettre à zéro (cette semaine)</a>
+  </div>
+</div>
+
+
+<div id="weeklyBanner" class="card" style="border:1px dashed #f59e0b; background:#0b1220; margin-bottom:1rem;">
+  <div class="month"><h2>Rappel hebdo</h2><span class="badge">Dimanche</span></div>
+  <div class="muted" id="weeklyBannerText">Tout est OK pour l’instant.</div>
+</div>
+
+<div class="subtitle">Road map – DJ / Platines</div>
+<div class="toolbar">
+  <input class="search" type="search" placeholder="Rechercher">
+  <a class="btn expand">Tout ouvrir</a>
+  <a class="btn collapse">Tout fermer</a>
+  <a class="btn reset">Réinitialiser progression</a>
+  <a class="btn print">Exporter en PDF</a>
+</div>
+<div class="toolbar">
+  <div style="flex:1 1 320px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem;">
+      <span>Progression globale</span>
+      <strong class="globalPct">0%</strong>
+    </div>
+    <div class="barwrap"><div class="bar globalBar" style="width:0%"></div></div>
+  </div>
+</div>
+<div class="grid">
+  
+        <div class="card">
+          <div class="month"><h2>Matériel & installation</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Matériel & installation::0"> <span>Comprendre la chaîne audio (controller/mixer/CDJ)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Matériel & installation::1"> <span>Câblage & niveaux (line/phono, gain staging)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Matériel & installation::2"> <span>Casque & monitoring</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="month"><h2>Techniques DJ</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Techniques DJ::0"> <span>Grid/warp & préparation bibliothèque</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Techniques DJ::1"> <span>Beatmatching (tempo, phase)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Techniques DJ::2"> <span>EQ & filtres (cut, sweep)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Techniques DJ::3"> <span>Transitions (fade, drop, echo out)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Techniques DJ::4"> <span>Loops & hot cues</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="month"><h2>Set & performance</h2><span class="pct">0%</span></div>
+          <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Set & performance::0"> <span>Construire un set 30–45 min (énergie, clés)</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Set & performance::1"> <span>Enregistrer & réécouter pour feedback</span></label></summary></details>
+<details><summary><label class="progress"><input type="checkbox" class="cb" data-id="dj::Set & performance::2"> <span>Gestion imprévus (rouge, larsen, boomy)</span></label></summary></details>
+          <div class="card-tools">
+            <a class="btn small mark-card">Tout cocher</a>
+            <a class="btn small unmark-card">Tout décocher</a>
+            <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+          </div>
+        </div>
+        
+
+<div class="card">
+  <div class="month"><h2>Playlists d’entraînement</h2><span class="badge">30–45 min</span></div>
+  <ul>
+    <li><strong>Échauffement (5 min) :</strong> calage tempo & phase sur 2 tracks.</li>
+    <li><strong>Transitions (15 min) :</strong> 5 transitions (EQ sweeps, filtres, echo out).</li>
+    <li><strong>Loops & hot cues (10 min) :</strong> créer 4 hot cues utiles, boucles 4–8 temps.</li>
+    <li><strong>Mini set (10–15 min) :</strong> enregistrement, réécoute & notes d’amélioration.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="month"><h2>Plan 4 semaines</h2><span class="badge">Progressif</span></div>
+  <ul>
+    <li><strong>S1 :</strong> Beatmatching à l’oreille 10–15 min/j + 3 transitions simples/j.</li>
+    <li><strong>S2 :</strong> EQ/filtres + 5 transitions/j, création de 4 hot cues/track utile.</li>
+    <li><strong>S3 :</strong> Loops (4–8 temps), transitions longues, 2 mini sets de 10 min/j (enregistrer).</li>
+    <li><strong>S4 :</strong> Set 30–40 min structuré (intro→peak→cool), enregistrement & auto-critique.</li>
+  </ul>
+</div>
+
+</div>
+<script type="module">
+  import { initChecklist } from './assets/js/app.js';
+  initChecklist(document.querySelector('main'), 'dj_progress');
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+<script type="module">
+  // Weekly objectives (fixed presets). Reset Monday.
+  import {{ loadProgress, saveProgress }} from './assets/js/app.js';
+  const KEY = 'dj_weekly';
+  const PRESET = [{"id": "practice_hours", "title": "Pratique DJ", "target": 2, "unit": "h", "step2": 1}, {"id": "transitions", "title": "Transitions travaillées", "target": 20, "unit": "transitions", "step2": 5}];
+  const list = document.getElementById('weeklyList');
+  function monday(d){{ const dt=new Date(d); const day=(dt.getDay()+6)%7; dt.setDate(dt.getDate()-day); dt.setHours(0,0,0,0); return dt; }}
+  function weekKey(){{ return monday(new Date()).toISOString().slice(0,10); }}
+  function load(){{ let s=loadProgress(KEY); if(!s || s.week!==weekKey()) s={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; return s; }}
+  let STATE = load();
+  function save(){{ saveProgress(KEY, STATE); render(); }}
+  function render(){{ list.innerHTML = PRESET.map(p=>{{
+      const val = STATE.items[p.id]||0;
+      const pct = Math.min(100, Math.round(100*val/p.target));
+      return `<li><strong>${{p.title}}</strong> — ${{val}} / ${{p.target}} ${{p.unit}}
+        <div class='barwrap'><div class='bar' style='width:${{pct}}%'></div></div>
+        <div class='links'><a class='btn small' data-inc='${{p.id}}'>+1</a>${{p.step2?` <a class='btn small' data-inc2='${{p.id}}'>+${{p.step2}}</a>`:''}}</div></li>`;
+    }}).join('');
+    list.querySelectorAll('[data-inc]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc'); STATE.items[id]=(STATE.items[id]||0)+1; save(); }}));
+    list.querySelectorAll('[data-inc2]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc2'); STATE.items[id]=(STATE.items[id]||0)+5; save(); }}));
+  }}
+  document.getElementById('weeklyReset')?.addEventListener('click', ()=>{{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }});
+  if(STATE.week!==weekKey()){{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }}
+  render();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+<script type="module">
+  // Weekly reminder: if Sunday and objectives < 100%, show banner
+  (function(){
+    const isSunday = (new Date().getDay()) === 0; // 0=Sunday
+    const list = document.getElementById('weeklyList');
+    const banner = document.getElementById('weeklyBanner');
+    const txt = document.getElementById('weeklyBannerText');
+    if(!list || !banner || !txt) return;
+    if(!isSunday){ banner.classList.add('hidden'); return; }
+    const bars = list.querySelectorAll('.barwrap .bar');
+    let allOk = true;
+    bars.forEach(b=>{
+      const w = parseInt(b.style.width||'0');
+      if(w < 100) allOk = false;
+    });
+    if(allOk){
+      banner.style.borderColor = '#34d399';
+      txt.textContent = '✅ Objectifs hebdo atteints. Bravo !';
+    }else{
+      banner.style.borderColor = '#f59e0b';
+      txt.textContent = '⏰ Il reste des objectifs à compléter cette semaine.';
+    }
+  })();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+</main>
+<footer>Conçu pour Ruben • © 2025</footer>
+<script type="module">
+  import { initChecklist } from './assets/js/app.js';
+  initChecklist(document.querySelector('main'), 'photo_progress');
+  initChecklist(document.querySelector('main'), 'guitar_progress');
+  initChecklist(document.querySelector('main'), 'dj_progress');
+</script>
+<script type="module">
+  (function(){
+    const KEY='pref_theme'; const saved=localStorage.getItem(KEY)||'dark'; document.documentElement.setAttribute('data-theme', saved);
+  })();
+</script>
+</body>
+</html>

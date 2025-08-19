@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road map – Projet ONG</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1><img src="assets/img/logo.svg" alt="" style="vertical-align:middle;margin-right:.5rem"/>Road map – Projet ONG</h1>
+      <nav>
+      <a class="navlink" href="index.html">Accueil</a>
+      <a class="navlink" href="flow.html">Flow</a>
+      <a class="navlink" href="timeline.html">Timeline</a>
+      <a class="navlink" href="focus.html">Focus</a>
+      <a class="navlink" href="edu.html">Sciences de l’éducation</a>
+      <a class="navlink" href="oulpan.html">Oulpan hébreu</a>
+      <a class="navlink" href="vae.html">VAE Paris 8</a>
+      <a class="navlink" href="master.html">Candidature Master (HUJI)</a>
+      <a class="navlink" href="driving.html">Permis auto & moto</a>
+      <a class="navlink" href="crea.html">Créa : Photo, Guitare & DJ</a>
+      <a class="navlink" href="ong.html">Projet ONG</a>
+    </nav>
+    </div>
+  </header>
+  <main>
+  
+
+<div class="card">
+  <div class="month"><h2>Objectifs hebdo</h2><span class="badge">Reset auto lundi</span></div>
+  <div class="section">Suivi</div>
+  <ul id="weeklyList"></ul>
+  <div class="card-tools">
+    <a class="btn small" id="weeklyReset">Remettre à zéro (cette semaine)</a>
+  </div>
+</div>
+
+
+<div id="weeklyBanner" class="card" style="border:1px dashed #f59e0b; background:#0b1220; margin-bottom:1rem;">
+  <div class="month"><h2>Rappel hebdo</h2><span class="badge">Dimanche</span></div>
+  <div class="muted" id="weeklyBannerText">Tout est OK pour l’instant.</div>
+</div>
+
+<div class="subtitle">Création / pilotage d’un projet humanitaire / associatif</div>
+<div class="grid">
+  <div class="card">
+    <div class="month"><h2>Roadmap projet</h2><span class="pct">0%</span></div>
+    <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="ong::diagnostic"> <span>Diagnostic besoins & cartographie acteurs</span></label></summary></details>
+    <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="ong::objectifs"> <span>Objectifs & indicateurs (cadre logique)</span></label></summary></details>
+    <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="ong::budget"> <span>Budget & ressources</span></label></summary></details>
+    <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="ong::partenaires"> <span>Partenaires & conventions</span></label></summary></details>
+    <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="ong::pilote"> <span>Pilotage & risques</span></label></summary></details>
+    <details><summary><label class="progress"><input type="checkbox" class="cb" data-id="ong::evaluation"> <span>Évaluation & capitalisation</span></label></summary></details>
+    <div class="card-tools">
+      <a class="btn small mark-card">Tout cocher</a>
+      <a class="btn small unmark-card">Tout décocher</a>
+      <a class="btn small toggle-card">Ouvrir/Fermer tous</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="month"><h2>Documents / templates</h2></div>
+    <ul>
+      <li>Cadre logique (logframe)</li>
+      <li>Template budget (OPEX/CAPEX)</li>
+      <li>Fiche partenaire / convention type</li>
+      <li>Plan de gestion des risques</li>
+    </ul>
+  </div>
+</div>
+<script type="module">
+  import { initChecklist } from './assets/js/app.js';
+  initChecklist(document.querySelector('main'), 'ong_progress');
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+  
+<script type="module">
+  import {{ loadProgress, saveProgress }} from './assets/js/app.js';
+  const KEY = 'ong_weekly';
+  const PRESET = [{"id": "deliverable", "title": "Livrable projet (doc/matrice)", "target": 1, "unit": "livrable"}, {"id": "meetings", "title": "RDV partenaires", "target": 2, "unit": "RDV"}, {"id": "budget", "title": "Suivi budget", "target": 1, "unit": "session"}];
+  const list = document.getElementById('weeklyList');
+  function monday(d){{ const dt=new Date(d); const day=(dt.getDay()+6)%7; dt.setDate(dt.getDate()-day); dt.setHours(0,0,0,0); return dt; }}
+  function weekKey(){{ return monday(new Date()).toISOString().slice(0,10); }}
+  function load(){{ let s=loadProgress(KEY); if(!s || s.week!==weekKey()) s={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; return s; }}
+  let STATE = load();
+  function save(){{ saveProgress(KEY, STATE); render(); }}
+  function render(){{ list.innerHTML = PRESET.map(p=>{{
+      const val = STATE.items[p.id]||0;
+      const pct = Math.min(100, Math.round(100*val/p.target));
+      return `<li><strong>${{p.title}}</strong> — ${{val}} / ${{p.target}} ${{p.unit}}
+        <div class='barwrap'><div class='bar' style='width:${{pct}}%'></div></div>
+        <div class='links'><a class='btn small' data-inc='${{p.id}}'>+1</a>${{p.step2?` <a class='btn small' data-inc2='${{p.id}}'>+${{p.step2}}</a>`:''}</div></li>`;
+    }}).join('');
+    list.querySelectorAll('[data-inc]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc'); STATE.items[id]=(STATE.items[id]||0)+1; save(); }}));
+    list.querySelectorAll('[data-inc2]').forEach(b=> b.addEventListener('click', ()=>{{ const id=b.getAttribute('data-inc2'); STATE.items[id]=(STATE.items[id]||0)+1; save(); }}));
+  }}
+  document.getElementById('weeklyReset')?.addEventListener('click', ()=>{{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }});
+  if(STATE.week!==weekKey()){{ STATE={{week:weekKey(), items:Object.fromEntries(PRESET.map(p=>[p.id,0]))}}; save(); }}
+  render();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+
+<script type="module">
+  // Weekly reminder: if Sunday and objectives < 100%, show banner
+  (function(){
+    const isSunday = (new Date().getDay()) === 0; // 0=Sunday
+    const list = document.getElementById('weeklyList');
+    const banner = document.getElementById('weeklyBanner');
+    const txt = document.getElementById('weeklyBannerText');
+    if(!list || !banner || !txt) return;
+    if(!isSunday){ banner.classList.add('hidden'); return; }
+    const bars = list.querySelectorAll('.barwrap .bar');
+    let allOk = true;
+    bars.forEach(b=>{
+      const w = parseInt(b.style.width||'0');
+      if(w < 100) allOk = false;
+    });
+    if(allOk){
+      banner.style.borderColor = '#34d399';
+      txt.textContent = '✅ Objectifs hebdo atteints. Bravo !';
+    }else{
+      banner.style.borderColor = '#f59e0b';
+      txt.textContent = '⏰ Il reste des objectifs à compléter cette semaine.';
+    }
+  })();
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+
+</main>
+  <footer>Conçu pour Ruben • © 2025</footer>
+  <script type="module">
+    import { setActiveNav, exportAllCSV } from './assets/js/app.js';
+    setActiveNav('ong.html');
+    document.getElementById('exportCSV').addEventListener('click', ()=>{
+      exportAllCSV('progression.csv',[
+        {key:'edu_progress', label:'Education'},
+        {key:'oulpan_progress', label:'Oulpan'},
+        {key:'vae_progress', label:'VAE'},
+        {key:'master_progress', label:'Master'},
+        {key:'ong_progress', label:'ONG'},
+        {key:'sport_progress', label:'Sport'},
+        {key:'english_progress', label:'English'},
+        {key:'car_progress', label:'Permis voiture'},
+        {key:'moto_progress', label:'Permis moto'},
+        {key:'photo_progress', label:'Photo'},
+        {key:'guitar_progress', label:'Guitare'},
+        {key:'dj_progress', label:'DJ'}
+      ]);
+    });
+  
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+</script>
+  
+</body>
+</html>
