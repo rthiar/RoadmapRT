@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road map</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1><img src="assets/img/logo.svg" alt="" style="vertical-align:middle;margin-right:.5rem"/>Road map</h1>
+      <nav>
+        <a class="btn small" id="themeToggle">Thème: Sombre</a>
+
+    <a class="navlink active" href="index.html">Accueil</a>
+    <a class="navlink " href="edu.html">Sciences de l’éducation</a>
+    <a class="navlink " href="oulpan.html">Oulpan hébreu</a>
+    <a class="navlink " href="vae.html">VAE Paris 8</a>
+    <a class="navlink " href="master.html">Candidature Master (HUJI)</a>
+    <a class="navlink " href="ong.html">Projet ONG</a>
+    <a class="navlink " href="sport.html">Sport & santé</a>
+    <a class="navlink " href="english.html">Anglais</a>
+    <a class="btn" id="exportCSV">Exporter progression (CSV)</a>
+    <a class="btn" id="exportJSON">Exporter progression (JSON)</a>
+    <input type="file" id="importJSON" accept=".json" style="display:none">
+    <a class="btn" id="exportPDF">Exporter PDF (global)</a>
+        <a class="navlink {car}" href="car.html">Permis voiture</a>
+    <a class="navlink {moto}" href="moto.html">Permis moto</a>
+    <a class="navlink {photo}" href="photo.html">Photographie</a>
+    <a class="navlink {guitar}" href="guitar.html">Guitare</a>
+    <a class="navlink {dj}" href="dj.html">DJ / Platines</a>
+    <a class="navlink {flow}" href="flow.html">Flow</a>
+        <a class="navlink {timeline}" href="timeline.html">Timeline</a>
+              <a class="navlink {focus}" href="focus.html">Focus</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+
+<div id="exportPanel" class="card" style="margin:1rem 0; display:none;">
+  <div class="month"><h2>Exporter PDF — Sélection des pages</h2><span class="badge">Choisir</span></div>
+  <div class="grid" id="exportPages">
+    <label class="card"><input type="checkbox" data-page="timeline.html" checked> Timeline</label>
+    <label class="card"><input type="checkbox" data-page="edu.html" checked> Éducation</label>
+    <label class="card"><input type="checkbox" data-page="oulpan.html" checked> Oulpan</label>
+    <label class="card"><input type="checkbox" data-page="vae.html" checked> VAE</label>
+    <label class="card"><input type="checkbox" data-page="master.html" checked> Master</label>
+    <label class="card"><input type="checkbox" data-page="english.html" checked> Anglais</label>
+    <label class="card"><input type="checkbox" data-page="car.html" checked> Permis voiture</label>
+    <label class="card"><input type="checkbox" data-page="moto.html" checked> Permis moto</label>
+    <label class="card"><input type="checkbox" data-page="ong.html" checked> ONG</label>
+    <label class="card"><input type="checkbox" data-page="sport.html" checked> Sport</label>
+    <label class="card"><input type="checkbox" data-page="photo.html" checked> Photo</label>
+    <label class="card"><input type="checkbox" data-page="guitar.html" checked> Guitare</label>
+    <label class="card"><input type="checkbox" data-page="dj.html" checked> DJ</label>
+  </div>
+  <div class="card-tools">
+    <a class="btn small" id="exportPDFRun">Exporter la sélection</a>
+    <a class="btn small" id="exportPDFClose">Fermer</a>
+  </div>
+</div>
+
+  
+<div class="subtitle">Vue d’ensemble 2025–2026 • Résumé des objectifs et progression</div>
+<div class="grid">
+  <div class="card"><div class="month"><h2>Focus aujourd’hui</h2></div><p>3 blocs : hebdo, SRS, timeline non démarrée.</p><a class="btn" href="focus.html">Ouvrir</a></div>
+
+  <div class="card">
+    <div class="month"><h2>Progression globale</h2><span class="badge">Moyenne</span></div>
+    <div class="barwrap"><div class="bar" id="globalBar" style="width:0%"></div></div>
+    <div class="muted" id="globalPct">0%</div>
+  </div>
+
+  <div class="card" id="todayWidget">
+    <div class="month"><h2>Aujourd’hui</h2><span class="badge">Résumé</span></div>
+    <ul id="todayList"></ul>
+    <div class="card-tools">
+      <a class="btn small" href="focus.html">Ouvrir Focus</a>
+      <a class="btn small" id="refreshToday">Actualiser</a>
+    </div>
+  </div>
+
+
+  <div class="card"><div class="month"><h2>Timeline globale</h2></div><p>Plan mensuel de Sept. 2025 à Juil. 2026, avec démarrage flexible.</p><a class="btn" href="timeline.html">Ouvrir</a></div>
+  <div class="card">
+    <div class="month"><h2>Sciences de l’éducation (L1→L3)</h2></div>
+    <div class="barwrap"><div class="bar" id="kpiEdu"></div></div>
+    <div class="muted" id="kpiEduText">0%</div>
+    <a class="btn" href="edu.html">Ouvrir</a>
+  </div>
+  <div class="card">
+    <div class="month"><h2>Oulpan hébreu (Alef→Vav)</h2></div>
+    <div class="barwrap"><div class="bar" id="kpiOulpan"></div></div>
+    <div class="muted" id="kpiOulpanText">0%</div>
+    <a class="btn" href="oulpan.html">Ouvrir</a>
+  </div>
+  <div class="card">
+    <div class="month"><h2>VAE Paris 8</h2></div>
+    <ul>
+      <li>📄 Livret 1</li>
+      <li>📚 Livret 2</li>
+      <li>🗣️ Jury (juin 2026)</li>
+    </ul>
+    <a class="btn" href="vae.html">Ouvrir</a>
+  </div>
+  <div class="card">
+    <div class="month"><h2>Master Hebrew University</h2></div>
+    <ul>
+      <li>🧾 Dossier & lettres</li>
+      <li>📝 SoP</li>
+      <li>🇬🇧 Preuve d’anglais</li>
+    </ul>
+    <a class="btn" href="master.html">Ouvrir</a>
+  </div>
+
+<div class="card">
+  <div class="month"><h2>Permis voiture</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiCar"></div></div>
+  <div class="muted" id="kpiCarText">0%</div>
+  <a class="btn" href="car.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>Permis moto</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiMoto"></div></div>
+  <div class="muted" id="kpiMotoText">0%</div>
+  <a class="btn" href="moto.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>Photographie</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiPhoto"></div></div>
+  <div class="muted" id="kpiPhotoText">0%</div>
+  <a class="btn" href="photo.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>Guitare</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiGuitar"></div></div>
+  <div class="muted" id="kpiGuitarText">0%</div>
+  <a class="btn" href="guitar.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>DJ / Platines</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiDj"></div></div>
+  <div class="muted" id="kpiDjText">0%</div>
+  <a class="btn" href="dj.html">Ouvrir</a>
+</div>
+
+
+<div class="card" id="nextActions">
+  <div class="month"><h2>Prochaines actions</h2><span class="badge">Suggestions</span></div>
+  <ul id="nextList"></ul>
+</div>
+
+</div>
+<script type="module">
+  // Light KPI read from localStorage
+  function pct(key){ try{{ const m=JSON.parse(localStorage.getItem(key)||"{{}}"); const vs=Object.values(m); if(!vs.length) return 0; const d=vs.filter(Boolean).length; return Math.round(d*100/vs.length); }}catch(e){{ return 0; }}}
+  const e = pct('edu_progress'); document.getElementById('kpiEdu').style.width=e+'%'; document.getElementById('kpiEduText').textContent=e+'%';
+  const o = pct('oulpan_progress'); document.getElementById('kpiOulpan').style.width=o+'%'; document.getElementById('kpiOulpanText').textContent=o+'%';
+  const c = pct('car_progress'); document.getElementById('kpiCar').style.width=c+'%'; document.getElementById('kpiCarText').textContent=c+'%';
+  const m = pct('moto_progress'); document.getElementById('kpiMoto').style.width=m+'%'; document.getElementById('kpiMotoText').textContent=m+'%';
+  const p = pct('photo_progress'); document.getElementById('kpiPhoto').style.width=p+'%'; document.getElementById('kpiPhotoText').textContent=p+'%';
+  const g = pct('guitar_progress'); document.getElementById('kpiGuitar').style.width=g+'%'; document.getElementById('kpiGuitarText').textContent=g+'%';
+  const dj = pct('dj_progress'); document.getElementById('kpiDj').style.width=dj+'%'; document.getElementById('kpiDjText').textContent=dj+'%';
+
+  // Global PDF export: fetch main contents and open a print window
+  document.getElementById('exportPDF').addEventListener('click', async ()=>{
+    const pages = ['timeline.html','edu.html','oulpan.html','vae.html','master.html','english.html','car.html','moto.html','ong.html','sport.html','photo.html','guitar.html','dj.html'];
+    const parts = [];
+    for(const p of pages){
+      try{
+        const res = await fetch(p);
+        const tx = await res.text();
+        const main = tx.split('<main>
+
+<div id="exportPanel" class="card" style="margin:1rem 0; display:none;">
+  <div class="month"><h2>Exporter PDF — Sélection des pages</h2><span class="badge">Choisir</span></div>
+  <div class="grid" id="exportPages">
+    <label class="card"><input type="checkbox" data-page="timeline.html" checked> Timeline</label>
+    <label class="card"><input type="checkbox" data-page="edu.html" checked> Éducation</label>
+    <label class="card"><input type="checkbox" data-page="oulpan.html" checked> Oulpan</label>
+    <label class="card"><input type="checkbox" data-page="vae.html" checked> VAE</label>
+    <label class="card"><input type="checkbox" data-page="master.html" checked> Master</label>
+    <label class="card"><input type="checkbox" data-page="english.html" checked> Anglais</label>
+    <label class="card"><input type="checkbox" data-page="car.html" checked> Permis voiture</label>
+    <label class="card"><input type="checkbox" data-page="moto.html" checked> Permis moto</label>
+    <label class="card"><input type="checkbox" data-page="ong.html" checked> ONG</label>
+    <label class="card"><input type="checkbox" data-page="sport.html" checked> Sport</label>
+    <label class="card"><input type="checkbox" data-page="photo.html" checked> Photo</label>
+    <label class="card"><input type="checkbox" data-page="guitar.html" checked> Guitare</label>
+    <label class="card"><input type="checkbox" data-page="dj.html" checked> DJ</label>
+  </div>
+  <div class="card-tools">
+    <a class="btn small" id="exportPDFRun">Exporter la sélection</a>
+    <a class="btn small" id="exportPDFClose">Fermer</a>
+  </div>
+</div>
+')[1]?.split('</main>')[0] || '';
+        parts.push(`<section style="page-break-after:always"><h2 style="font-size:18px;margin:0 0 .5rem 0">${p}</h2>${main}</section>`);
+      }catch(e){ parts.push(`<section><h2>${p}</h2><p>Erreur de chargement.</p></section>`); }
+    }
+    const win = window.open('', '_blank');
+    win.document.write(`<!DOCTYPE html><html><head><meta charset='utf-8'><title>Export PDF</title>
+      <style>
+      body{{font-family:system-ui, -apple-system, Segoe UI, Roboto; color:#000; background:#fff; margin:1cm;}}
+      h2{{border-bottom:1px solid #999; padding-bottom:.2rem; margin-top:0}}
+      .card{{border:1px solid #ddd; border-radius:8px; padding:.5rem; margin:.5rem 0}}
+      .btn, nav, header, .toolbar, .card-tools{{display:none !important}}
+      </style></head><body>${parts.join('')}</body></html>`);
+    win.document.close();
+    win.focus();
+    win.print();
+  });
+
+
+  // Toggle selector panel
+  const panel = document.getElementById('exportPanel');
+  document.getElementById('exportPDF').addEventListener('click', ()=>{
+    panel.style.display = panel.style.display==='none' ? 'block' : 'none';
+  });
+  document.getElementById('exportPDFClose').addEventListener('click', ()=>{
+    panel.style.display='none';
+  });
+  // Export selected pages
+  document.getElementById('exportPDFRun').addEventListener('click', async ()=>{
+    const sel = Array.from(document.querySelectorAll('#exportPages input[type="checkbox"]:checked')).map(c=>c.dataset.page);
+    if(!sel.length){ alert('Sélectionne au moins une page.'); return; }
+    const parts = [];
+    for(const p of sel){
+      try{
+        const res = await fetch(p);
+        const tx = await res.text();
+        const title = (tx.match(/<title>(.*?)<\/title>/)||[])[1] || p;
+        const main = tx.split('<main>')[1]?.split('</main>')[0] || '';
+        parts.push(`<section style="page-break-after:always"><h2 style="font-size:18px;margin:0 0 .5rem 0">${title}</h2>${main}</section>`);
+      }catch(e){ parts.push(`<section><h2>${p}</h2><p>Erreur de chargement.</p></section>`); }
+    }
+    const win = window.open('', '_blank');
+    win.document.write(`<!DOCTYPE html><html><head><meta charset='utf-8'><title>Export PDF</title>
+      <style>
+      body{{font-family:system-ui, -apple-system, Segoe UI, Roboto; color:#000; background:#fff; margin:1cm;}}
+      h2{{border-bottom:1px solid #999; padding-bottom:.2rem; margin-top:0}}
+      .card{{border:1px solid #ddd; border-radius:8px; padding:.5rem; margin:.5rem 0}}
+      .btn, nav, header, .toolbar, .card-tools{{display:none !important}}
+      </style></head><body>${parts.join('')}</body></html>`);
+    win.document.close(); win.focus(); win.print();
+  });
+
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+
+  function pctNS(key){ try{ const m=JSON.parse(localStorage.getItem(key)||"{}"); const vs=Object.values(m); if(!vs.length) return null; const d=vs.filter(Boolean).length; return Math.round(d*100/vs.length); }catch(e){ return null; } }
+  function computeGlobal(){
+    const keys = ['edu_progress','oulpan_progress','vae_progress','master_progress','ong_progress','sport_progress','english_progress','car_progress','moto_progress','photo_progress','guitar_progress','dj_progress'];
+    const vals = keys.map(pctNS).filter(v=>v!==null);
+    const avg = vals.length? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length) : 0;
+    document.getElementById('globalBar').style.width = avg + '%';
+    document.getElementById('globalPct').textContent = avg + '%';
+    return keys.map((k,i)=>({k, pct:pctNS(k)}));
+  }
+  function labelFor(ns){
+    return {
+      'edu_progress':'Éducation', 'oulpan_progress':'Oulpan', 'vae_progress':'VAE', 'master_progress':'Master', 'ong_progress':'ONG',
+      'sport_progress':'Sport', 'english_progress':'Anglais','car_progress':'Permis voiture','moto_progress':'Permis moto','photo_progress':'Photo','guitar_progress':'Guitare','dj_progress':'DJ'
+    }[ns] || ns;
+  }
+  function linkFor(ns){
+    return {
+      'edu_progress':'edu.html', 'oulpan_progress':'oulpan.html', 'vae_progress':'vae.html', 'master_progress':'master.html', 'ong_progress':'ong.html',
+      'sport_progress':'sport.html', 'english_progress':'english.html','car_progress':'car.html','moto_progress':'moto.html','photo_progress':'photo.html','guitar_progress':'guitar.html','dj_progress':'dj.html'
+    }[ns] || 'index.html';
+  }
+  function nextActions(){
+    const arr = computeGlobal().filter(x=>x.pct!==null).sort((a,b)=>(a.pct)-(b.pct)).slice(0,3);
+    const list = document.getElementById('nextList');
+    list.innerHTML = arr.map(x=>`<li><strong>${labelFor(x.k)}</strong> — ${x.pct}% <a class="btn small" href="${linkFor(x.k)}">Ouvrir</a></li>`).join('');
+  }
+  computeGlobal(); nextActions();
+
+
+  // Local Notifications (ask permission once; simple reminders on load)
+  async function askNotify(){
+    try{
+      if(!('Notification' in window)) return;
+      if(Notification.permission === 'granted') return;
+      if(Notification.permission !== 'denied'){
+        await Notification.requestPermission();
+      }
+    }catch(e){}
+  }
+  function notifyNow(title, body){
+    try{
+      if(('Notification' in window) && Notification.permission === 'granted'){
+        new Notification(title, { body });
+      }
+    }catch(e){}
+  }
+  // Heuristics: if it's Sunday and weekly goals not 100%, notify.
+  function sundayNotifyCheck(){
+    const isSunday = (new Date().getDay()) === 0;
+    if(!isSunday) return;
+    const keys = ['car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly'];
+    let pending = 0;
+    keys.forEach(k=>{
+      try{
+        const s = JSON.parse(localStorage.getItem(k)||'{}');
+        const items = s.items||{};
+        Object.keys(items).forEach(id=>{
+          const presetTarget = 1; // we don't know target here; banner handles more detail; we just detect non-zero unfinished by pct bars; fallback simple heuristic:
+        });
+      }catch(e){}
+    });
+    // Lightweight ping (content details are on each page)
+    notifyNow('Rappel hebdo', 'Pense à compléter tes objectifs de la semaine.');
+  }
+  // Daily: if Oulpan SRS has due items, ping once per load
+  function srsNotify(){
+    try{
+      const s = JSON.parse(localStorage.getItem('oulpan_srs_v1')||'{}');
+      if(s.items){
+        const today = new Date(); today.setHours(0,0,0,0);
+        const due = Object.values(s.items).filter(it => !it.nextDue || new Date(it.nextDue).setHours(0,0,0,0) <= today).length;
+        if(due>0) notifyNow('Oulpan — SRS', due + ' carte(s) à réviser aujourd’hui.');
+      }
+    }catch(e){}
+  }
+  askNotify().then(()=>{ sundayNotifyCheck(); srsNotify(); });
+
+
+  // Import/Export JSON for all progress namespaces
+  const NS_LIST = ['edu_progress','oulpan_progress','vae_progress','master_progress','ong_progress','sport_progress','english_progress','car_progress','moto_progress','photo_progress','guitar_progress','dj_progress','car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly','timeline_status_v1','oulpan_srs_v1','oulpan_words_override'];
+  document.getElementById('exportJSON').addEventListener('click', ()=>{
+    const data = {};
+    NS_LIST.forEach(k=>{ data[k]=localStorage.getItem(k); });
+    const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'progression_export.json';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+  document.getElementById('importJSON').addEventListener('change', async (e)=>{
+    const f = e.target.files[0]; if(!f) return;
+    try{
+      const text = await f.text();
+      const data = JSON.parse(text);
+      Object.keys(data).forEach(k=>{ if(NS_LIST.includes(k) && data[k]!==undefined) localStorage.setItem(k, data[k]); });
+      alert('Progression importée. Recharge la page.');
+    }catch(err){
+      alert('Import JSON invalide: ' + err.message);
+    }
+  });
+  // Expose file chooser via long-press on Export JSON or double click
+  document.getElementById('exportJSON').addEventListener('dblclick', ()=> document.getElementById('importJSON').click());
+
+
+  function buildToday(){
+    const list = document.getElementById('todayList');
+    if(!list) return;
+    const items = [];
+    // SRS due
+    try{
+      const s = JSON.parse(localStorage.getItem('oulpan_srs_v1')||'{}');
+      const today = new Date(); today.setHours(0,0,0,0);
+      const due = Object.values(s.items||{}).filter(it => !it.nextDue || new Date(it.nextDue).setHours(0,0,0,0) <= today).length;
+      items.push(`Oulpan — SRS : <strong>${due}</strong> carte(s) dues <a class='btn small' href='oulpan.html'>Réviser</a>`);
+    }catch(e){}
+    // Weekly objectives under target: count namespaces with any bar <100
+    const W = ['car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly'];
+    let pending=0;
+    W.forEach(k=>{
+      try{
+        const s = JSON.parse(localStorage.getItem(k)||'{}');
+        const presetCount = s && s.items ? Object.keys(s.items).length : 0;
+        const sum = Object.values(s.items||{}).reduce((a,b)=>a+b,0);
+        if(presetCount>0 && sum===0) pending++; // rough heuristic: nothing logged yet
+      }catch(e){}
+    });
+    items.push(`Hebdo : <strong>${pending}</strong> domaine(s) à démarrer <a class='btn small' href='focus.html'>Voir</a>`);
+    // Timeline not started (current month)
+    try{
+      const TL = JSON.parse(localStorage.getItem('timeline_status_v1')||'{}');
+      const now = new Date(); const y = now.getFullYear(), m = now.getMonth()+1;
+      const notStarted = Object.keys(TL).filter(id => id.startsWith('m'+y+'-'+m+'::') && TL[id]===0).length;
+      items.push(`Timeline (${y}-${('0'+m).slice(-2)}) : <strong>${notStarted}</strong> tâche(s) à lancer <a class='btn small' href='timeline.html'>Ouvrir</a>`);
+    }catch(e){}
+    list.innerHTML = items.map(x=>`<li>${x}</li>`).join('');
+  }
+  buildToday();
+  document.getElementById('refreshToday')?.addEventListener('click', buildToday);
+
+
+  function autoSnapshot(tag){
+    try{
+      const NS_LIST = ['edu_progress','oulpan_progress','vae_progress','master_progress','ong_progress','sport_progress','english_progress','car_progress','moto_progress','photo_progress','guitar_progress','dj_progress','car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly','timeline_status_v1','oulpan_srs_v1','oulpan_words_override'];
+      const data = {}; NS_LIST.forEach(k=>{ data[k]=localStorage.getItem(k); });
+      const stamp = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
+      const blob = new Blob([JSON.stringify({tag, when: new Date().toISOString(), data}, null, 2)], {type:'application/json'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `snapshot_${tag}_${stamp}.json`;
+      document.body.appendChild(a); a.click(); a.remove();
+    }catch(e){}
+  }
+  // Hook existing exports
+  const btnCSV = document.getElementById('exportCSV');
+  const btnPDF = document.getElementById('exportPDF');
+  const btnJSON = document.getElementById('exportJSON');
+  btnCSV?.addEventListener('click', ()=>autoSnapshot('csv'));
+  btnPDF?.addEventListener('click', ()=>autoSnapshot('pdf'));
+  btnJSON?.addEventListener('click', ()=>autoSnapshot('json'));
+
+</script>
+
+  </main>
+  <footer>Conçu pour Ruben • © 2025</footer>
+  <script type="module">
+    import { setActiveNav, exportAllCSV } from './assets/js/app.js';
+    setActiveNav('index.html');
+    document.getElementById('exportCSV').addEventListener('click', ()=>{
+      exportAllCSV('progression.csv',[
+        {key:'edu_progress', label:'Education'},
+        {key:'oulpan_progress', label:'Oulpan'},
+        {key:'vae_progress', label:'VAE'},
+        {key:'master_progress', label:'Master'},
+        {key:'ong_progress', label:'ONG'},
+        {key:'sport_progress', label:'Sport'},
+        {key:'english_progress', label:'English'},
+        {key:'car_progress', label:'Permis voiture'},
+        {key:'moto_progress', label:'Permis moto'},
+        {key:'photo_progress', label:'Photo'},
+        {key:'guitar_progress', label:'Guitare'},
+        {key:'dj_progress', label:'DJ'}
+      ]);
+    });
+  
+  // Global PDF export: fetch main contents and open a print window
+  document.getElementById('exportPDF').addEventListener('click', async ()=>{
+    const pages = ['timeline.html','edu.html','oulpan.html','vae.html','master.html','english.html','car.html','moto.html','ong.html','sport.html','photo.html','guitar.html','dj.html'];
+    const parts = [];
+    for(const p of pages){
+      try{
+        const res = await fetch(p);
+        const tx = await res.text();
+        const main = tx.split('<main>
+
+<div id="exportPanel" class="card" style="margin:1rem 0; display:none;">
+  <div class="month"><h2>Exporter PDF — Sélection des pages</h2><span class="badge">Choisir</span></div>
+  <div class="grid" id="exportPages">
+    <label class="card"><input type="checkbox" data-page="timeline.html" checked> Timeline</label>
+    <label class="card"><input type="checkbox" data-page="edu.html" checked> Éducation</label>
+    <label class="card"><input type="checkbox" data-page="oulpan.html" checked> Oulpan</label>
+    <label class="card"><input type="checkbox" data-page="vae.html" checked> VAE</label>
+    <label class="card"><input type="checkbox" data-page="master.html" checked> Master</label>
+    <label class="card"><input type="checkbox" data-page="english.html" checked> Anglais</label>
+    <label class="card"><input type="checkbox" data-page="car.html" checked> Permis voiture</label>
+    <label class="card"><input type="checkbox" data-page="moto.html" checked> Permis moto</label>
+    <label class="card"><input type="checkbox" data-page="ong.html" checked> ONG</label>
+    <label class="card"><input type="checkbox" data-page="sport.html" checked> Sport</label>
+    <label class="card"><input type="checkbox" data-page="photo.html" checked> Photo</label>
+    <label class="card"><input type="checkbox" data-page="guitar.html" checked> Guitare</label>
+    <label class="card"><input type="checkbox" data-page="dj.html" checked> DJ</label>
+  </div>
+  <div class="card-tools">
+    <a class="btn small" id="exportPDFRun">Exporter la sélection</a>
+    <a class="btn small" id="exportPDFClose">Fermer</a>
+  </div>
+</div>
+')[1]?.split('</main>')[0] || '';
+        parts.push(`<section style="page-break-after:always"><h2 style="font-size:18px;margin:0 0 .5rem 0">${p}</h2>${main}</section>`);
+      }catch(e){ parts.push(`<section><h2>${p}</h2><p>Erreur de chargement.</p></section>`); }
+    }
+    const win = window.open('', '_blank');
+    win.document.write(`<!DOCTYPE html><html><head><meta charset='utf-8'><title>Export PDF</title>
+      <style>
+      body{{font-family:system-ui, -apple-system, Segoe UI, Roboto; color:#000; background:#fff; margin:1cm;}}
+      h2{{border-bottom:1px solid #999; padding-bottom:.2rem; margin-top:0}}
+      .card{{border:1px solid #ddd; border-radius:8px; padding:.5rem; margin:.5rem 0}}
+      .btn, nav, header, .toolbar, .card-tools{{display:none !important}}
+      </style></head><body>${parts.join('')}</body></html>`);
+    win.document.close();
+    win.focus();
+    win.print();
+  });
+
+
+  // Toggle selector panel
+  const panel = document.getElementById('exportPanel');
+  document.getElementById('exportPDF').addEventListener('click', ()=>{
+    panel.style.display = panel.style.display==='none' ? 'block' : 'none';
+  });
+  document.getElementById('exportPDFClose').addEventListener('click', ()=>{
+    panel.style.display='none';
+  });
+  // Export selected pages
+  document.getElementById('exportPDFRun').addEventListener('click', async ()=>{
+    const sel = Array.from(document.querySelectorAll('#exportPages input[type="checkbox"]:checked')).map(c=>c.dataset.page);
+    if(!sel.length){ alert('Sélectionne au moins une page.'); return; }
+    const parts = [];
+    for(const p of sel){
+      try{
+        const res = await fetch(p);
+        const tx = await res.text();
+        const title = (tx.match(/<title>(.*?)<\/title>/)||[])[1] || p;
+        const main = tx.split('<main>')[1]?.split('</main>')[0] || '';
+        parts.push(`<section style="page-break-after:always"><h2 style="font-size:18px;margin:0 0 .5rem 0">${title}</h2>${main}</section>`);
+      }catch(e){ parts.push(`<section><h2>${p}</h2><p>Erreur de chargement.</p></section>`); }
+    }
+    const win = window.open('', '_blank');
+    win.document.write(`<!DOCTYPE html><html><head><meta charset='utf-8'><title>Export PDF</title>
+      <style>
+      body{{font-family:system-ui, -apple-system, Segoe UI, Roboto; color:#000; background:#fff; margin:1cm;}}
+      h2{{border-bottom:1px solid #999; padding-bottom:.2rem; margin-top:0}}
+      .card{{border:1px solid #ddd; border-radius:8px; padding:.5rem; margin:.5rem 0}}
+      .btn, nav, header, .toolbar, .card-tools{{display:none !important}}
+      </style></head><body>${parts.join('')}</body></html>`);
+    win.document.close(); win.focus(); win.print();
+  });
+
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+
+  function pctNS(key){ try{ const m=JSON.parse(localStorage.getItem(key)||"{}"); const vs=Object.values(m); if(!vs.length) return null; const d=vs.filter(Boolean).length; return Math.round(d*100/vs.length); }catch(e){ return null; } }
+  function computeGlobal(){
+    const keys = ['edu_progress','oulpan_progress','vae_progress','master_progress','ong_progress','sport_progress','english_progress','car_progress','moto_progress','photo_progress','guitar_progress','dj_progress'];
+    const vals = keys.map(pctNS).filter(v=>v!==null);
+    const avg = vals.length? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length) : 0;
+    document.getElementById('globalBar').style.width = avg + '%';
+    document.getElementById('globalPct').textContent = avg + '%';
+    return keys.map((k,i)=>({k, pct:pctNS(k)}));
+  }
+  function labelFor(ns){
+    return {
+      'edu_progress':'Éducation', 'oulpan_progress':'Oulpan', 'vae_progress':'VAE', 'master_progress':'Master', 'ong_progress':'ONG',
+      'sport_progress':'Sport', 'english_progress':'Anglais','car_progress':'Permis voiture','moto_progress':'Permis moto','photo_progress':'Photo','guitar_progress':'Guitare','dj_progress':'DJ'
+    }[ns] || ns;
+  }
+  function linkFor(ns){
+    return {
+      'edu_progress':'edu.html', 'oulpan_progress':'oulpan.html', 'vae_progress':'vae.html', 'master_progress':'master.html', 'ong_progress':'ong.html',
+      'sport_progress':'sport.html', 'english_progress':'english.html','car_progress':'car.html','moto_progress':'moto.html','photo_progress':'photo.html','guitar_progress':'guitar.html','dj_progress':'dj.html'
+    }[ns] || 'index.html';
+  }
+  function nextActions(){
+    const arr = computeGlobal().filter(x=>x.pct!==null).sort((a,b)=>(a.pct)-(b.pct)).slice(0,3);
+    const list = document.getElementById('nextList');
+    list.innerHTML = arr.map(x=>`<li><strong>${labelFor(x.k)}</strong> — ${x.pct}% <a class="btn small" href="${linkFor(x.k)}">Ouvrir</a></li>`).join('');
+  }
+  computeGlobal(); nextActions();
+
+
+  // Local Notifications (ask permission once; simple reminders on load)
+  async function askNotify(){
+    try{
+      if(!('Notification' in window)) return;
+      if(Notification.permission === 'granted') return;
+      if(Notification.permission !== 'denied'){
+        await Notification.requestPermission();
+      }
+    }catch(e){}
+  }
+  function notifyNow(title, body){
+    try{
+      if(('Notification' in window) && Notification.permission === 'granted'){
+        new Notification(title, { body });
+      }
+    }catch(e){}
+  }
+  // Heuristics: if it's Sunday and weekly goals not 100%, notify.
+  function sundayNotifyCheck(){
+    const isSunday = (new Date().getDay()) === 0;
+    if(!isSunday) return;
+    const keys = ['car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly'];
+    let pending = 0;
+    keys.forEach(k=>{
+      try{
+        const s = JSON.parse(localStorage.getItem(k)||'{}');
+        const items = s.items||{};
+        Object.keys(items).forEach(id=>{
+          const presetTarget = 1; // we don't know target here; banner handles more detail; we just detect non-zero unfinished by pct bars; fallback simple heuristic:
+        });
+      }catch(e){}
+    });
+    // Lightweight ping (content details are on each page)
+    notifyNow('Rappel hebdo', 'Pense à compléter tes objectifs de la semaine.');
+  }
+  // Daily: if Oulpan SRS has due items, ping once per load
+  function srsNotify(){
+    try{
+      const s = JSON.parse(localStorage.getItem('oulpan_srs_v1')||'{}');
+      if(s.items){
+        const today = new Date(); today.setHours(0,0,0,0);
+        const due = Object.values(s.items).filter(it => !it.nextDue || new Date(it.nextDue).setHours(0,0,0,0) <= today).length;
+        if(due>0) notifyNow('Oulpan — SRS', due + ' carte(s) à réviser aujourd’hui.');
+      }
+    }catch(e){}
+  }
+  askNotify().then(()=>{ sundayNotifyCheck(); srsNotify(); });
+
+
+  // Import/Export JSON for all progress namespaces
+  const NS_LIST = ['edu_progress','oulpan_progress','vae_progress','master_progress','ong_progress','sport_progress','english_progress','car_progress','moto_progress','photo_progress','guitar_progress','dj_progress','car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly','timeline_status_v1','oulpan_srs_v1','oulpan_words_override'];
+  document.getElementById('exportJSON').addEventListener('click', ()=>{
+    const data = {};
+    NS_LIST.forEach(k=>{ data[k]=localStorage.getItem(k); });
+    const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'progression_export.json';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+  document.getElementById('importJSON').addEventListener('change', async (e)=>{
+    const f = e.target.files[0]; if(!f) return;
+    try{
+      const text = await f.text();
+      const data = JSON.parse(text);
+      Object.keys(data).forEach(k=>{ if(NS_LIST.includes(k) && data[k]!==undefined) localStorage.setItem(k, data[k]); });
+      alert('Progression importée. Recharge la page.');
+    }catch(err){
+      alert('Import JSON invalide: ' + err.message);
+    }
+  });
+  // Expose file chooser via long-press on Export JSON or double click
+  document.getElementById('exportJSON').addEventListener('dblclick', ()=> document.getElementById('importJSON').click());
+
+
+  function buildToday(){
+    const list = document.getElementById('todayList');
+    if(!list) return;
+    const items = [];
+    // SRS due
+    try{
+      const s = JSON.parse(localStorage.getItem('oulpan_srs_v1')||'{}');
+      const today = new Date(); today.setHours(0,0,0,0);
+      const due = Object.values(s.items||{}).filter(it => !it.nextDue || new Date(it.nextDue).setHours(0,0,0,0) <= today).length;
+      items.push(`Oulpan — SRS : <strong>${due}</strong> carte(s) dues <a class='btn small' href='oulpan.html'>Réviser</a>`);
+    }catch(e){}
+    // Weekly objectives under target: count namespaces with any bar <100
+    const W = ['car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly'];
+    let pending=0;
+    W.forEach(k=>{
+      try{
+        const s = JSON.parse(localStorage.getItem(k)||'{}');
+        const presetCount = s && s.items ? Object.keys(s.items).length : 0;
+        const sum = Object.values(s.items||{}).reduce((a,b)=>a+b,0);
+        if(presetCount>0 && sum===0) pending++; // rough heuristic: nothing logged yet
+      }catch(e){}
+    });
+    items.push(`Hebdo : <strong>${pending}</strong> domaine(s) à démarrer <a class='btn small' href='focus.html'>Voir</a>`);
+    // Timeline not started (current month)
+    try{
+      const TL = JSON.parse(localStorage.getItem('timeline_status_v1')||'{}');
+      const now = new Date(); const y = now.getFullYear(), m = now.getMonth()+1;
+      const notStarted = Object.keys(TL).filter(id => id.startsWith('m'+y+'-'+m+'::') && TL[id]===0).length;
+      items.push(`Timeline (${y}-${('0'+m).slice(-2)}) : <strong>${notStarted}</strong> tâche(s) à lancer <a class='btn small' href='timeline.html'>Ouvrir</a>`);
+    }catch(e){}
+    list.innerHTML = items.map(x=>`<li>${x}</li>`).join('');
+  }
+  buildToday();
+  document.getElementById('refreshToday')?.addEventListener('click', buildToday);
+
+
+  function autoSnapshot(tag){
+    try{
+      const NS_LIST = ['edu_progress','oulpan_progress','vae_progress','master_progress','ong_progress','sport_progress','english_progress','car_progress','moto_progress','photo_progress','guitar_progress','dj_progress','car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly','timeline_status_v1','oulpan_srs_v1','oulpan_words_override'];
+      const data = {}; NS_LIST.forEach(k=>{ data[k]=localStorage.getItem(k); });
+      const stamp = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
+      const blob = new Blob([JSON.stringify({tag, when: new Date().toISOString(), data}, null, 2)], {type:'application/json'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `snapshot_${tag}_${stamp}.json`;
+      document.body.appendChild(a); a.click(); a.remove();
+    }catch(e){}
+  }
+  // Hook existing exports
+  const btnCSV = document.getElementById('exportCSV');
+  const btnPDF = document.getElementById('exportPDF');
+  const btnJSON = document.getElementById('exportJSON');
+  btnCSV?.addEventListener('click', ()=>autoSnapshot('csv'));
+  btnPDF?.addEventListener('click', ()=>autoSnapshot('pdf'));
+  btnJSON?.addEventListener('click', ()=>autoSnapshot('json'));
+
+</script>
+  
+</body>
+</html>

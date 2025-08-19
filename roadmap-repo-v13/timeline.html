@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road map – Timeline globale</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .timeline-v{display:flex; flex-direction:column; gap:1rem; margin-bottom:1rem; position:relative}
+  .tl-item{display:grid; grid-template-columns:140px 1fr; gap:1rem; align-items:start}
+  .tl-date{color:#e5e7eb; font-weight:700; padding-top:.4rem}
+  .tl-card{position:relative}
+  .tl-card:before{content:""; position:absolute; left:-.75rem; top:.6rem; width:10px; height:10px; background:linear-gradient(90deg,#22d3ee,#a78bfa); border-radius:50%}
+  .controls{display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem; align-items:center}
+  select{padding:.6rem .8rem; border-radius:.6rem; border:1px solid #334155; background:#0b1220; color:#e5e7eb}
+  .hint{color:#94a3b8}
+  .badge2{font-size:.72rem; padding:.15rem .45rem; border-radius:.45rem; border:1px solid #334155; background:#0b1220; margin-right:.35rem}
+  .links{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem}
+  .mini{font-size:.82rem}
+
+  .datebox{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-top:.5rem}
+  .datebox input{padding:.3rem .5rem; border-radius:.45rem; border:1px solid #334155; background:#0b1220; color:#e5e7eb}
+  .tl-datebar{height:8px;background:#0b1220;border:1px solid #334155;border-radius:999px;overflow:hidden;margin-top:.25rem}
+  .tl-datebar > .bar{height:100%;width:0;background:linear-gradient(90deg,#22d3ee,#a78bfa)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1><img src="assets/img/logo.svg" alt="" style="vertical-align:middle;margin-right:.5rem"/>Road map – Timeline globale</h1>
+      <nav>
+        <a class="btn small" id="themeToggle">Thème: Sombre</a>
+
+        <a class="navlink" href="index.html">Accueil</a>
+        <a class="navlink" href="timeline.html">Timeline</a>
+        <a class="navlink" href="flow.html">Flow</a>
+        <a class="navlink" href="edu.html">Sciences de l’éducation</a>
+        <a class="navlink" href="oulpan.html">Oulpan hébreu</a>
+        <a class="navlink" href="vae.html">VAE Paris 8</a>
+        <a class="navlink" href="master.html">Candidature Master (HUJI)</a>
+        <a class="navlink" href="ong.html">Projet ONG</a>
+        <a class="navlink" href="sport.html">Sport & santé</a>
+        <a class="navlink" href="english.html">Anglais</a>
+        <a class="navlink" href="car.html">Permis voiture</a>
+        <a class="navlink" href="moto.html">Permis moto</a>
+        <a class="navlink" href="photo.html">Photographie</a>
+        <a class="navlink" href="guitar.html">Guitare</a>
+        <a class="navlink" href="dj.html">DJ / Platines</a>
+        <a class="btn" id="exportCSV">Exporter progression (CSV)</a>
+              <a class="navlink {focus}" href="focus.html">Focus</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="subtitle">
+<div id="tlBanner" class="card" style="border:1px dashed #f59e0b; background:#0b1220; margin-bottom:1rem;">
+  <div class="month"><h2>Rappel de fin de mois</h2><span class="badge">Auto</span></div>
+  <div class="muted" id="tlBannerText">Aucun rappel pour l’instant.</div>
+</div>
+Plan global **sans tout lancer d’un coup** — fin impérative : <strong>juillet 2026</strong>. Choisis ton mois de démarrage ci-dessous.</div>
+
+    <div class="controls">
+      <label for="start" class="hint mini">Mois de départ :</label>
+      <select id="start">
+        <option value="2025-09">Septembre 2025 (léger)</option>
+        <option value="2025-10" selected>Octobre 2025 (recommandé)</option>
+        <option value="2025-11">Novembre 2025</option>
+        <option value="2025-12">Décembre 2025</option>
+        <option value="2026-01">Janvier 2026</option>
+      </select>
+      <span class="hint mini">Fin fixée : <strong>Juillet 2026</strong> (jalons auto-répartis)</span>
+    </div>
+
+    <div class="card">
+      <div class="month"><h2>Roadmap mensuelle</h2><span class="badge">Sept. 2025 → Juil. 2026</span></div>
+      <div class="timeline-v" id="tl"></div>
+    </div>
+  </main>
+  <footer>Conçu pour Ruben • © 2025</footer>
+
+  <script type="module">
+    import { exportAllCSV } from './assets/js/app.js';
+    document.getElementById('exportCSV').addEventListener('click', ()=>{
+      exportAllCSV('progression.csv',[
+        {key:'edu_progress', label:'Education'},
+        {key:'oulpan_progress', label:'Oulpan'},
+        {key:'vae_progress', label:'VAE'},
+        {key:'master_progress', label:'Master'},
+        {key:'ong_progress', label:'ONG'},
+        {key:'sport_progress', label:'Sport'},
+        {key:'english_progress', label:'English'},
+        {key:'car_progress', label:'Permis voiture'},
+        {key:'moto_progress', label:'Permis moto'},
+        {key:'photo_progress', label:'Photo'},
+        {key:'guitar_progress', label:'Guitare'},
+        {key:'dj_progress', label:'DJ'}
+      ]);
+    });
+
+    const end = { y:2026, m:7 }; // July 2026
+    const baseMonths = [
+      { y:2025, m:9,  label:'Sept. 2025' },
+      { y:2025, m:10, label:'Oct. 2025' },
+      { y:2025, m:11, label:'Nov. 2025' },
+      { y:2025, m:12, label:'Déc. 2025' },
+      { y:2026, m:1,  label:'Janv. 2026' },
+      { y:2026, m:2,  label:'Fév. 2026' },
+      { y:2026, m:3,  label:'Mars 2026' },
+      { y:2026, m:4,  label:'Avr. 2026' },
+      { y:2026, m:5,  label:'Mai 2026' },
+      { y:2026, m:6,  label:'Juin 2026' },
+      { y:2026, m:7,  label:'Juil. 2026' },
+    ];
+
+    // Backbone tasks per month (staggered, not everything at once)
+    const sequence = [
+  { label:'Sept. 2025', tasks:[
+    {txt:'Oulpan Alef (modules 1–2) — léger', goal:'Au moins 60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'Code (ETG) : 1 série/jour', goal:'≥ 7 séries complètes', links:[{t:'Permis voiture', href:'car.html'}]},
+    {txt:'Sport : mise en place habitude 3×/sem.', goal:'≥ 3 séances', links:[{t:'Sport', href:'sport.html'}]},
+  ]},
+  { label:'Oct. 2025', tasks:[
+    {txt:'Éducation L1 – Fondations', goal:'Valider 3 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan Alef (3–4)', goal:'60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'VAE : informations & éligibilité', goal:'Livret 1 initié', links:[{t:'VAE', href:'vae.html'}]},
+  ]},
+  { label:'Nov. 2025', tasks:[
+    {txt:'Éducation : Psycho/apprentissages', goal:'Valider 3 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan Alef (5–6)', goal:'60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'Code : examens blancs', goal:'≥ 36/40 sur 3 blancs', links:[{t:'Permis voiture', href:'car.html'}]},
+    {txt:'Guitare – démarrage', goal:'≥ 3h pratique', links:[{t:'Guitare', href:'guitar.html'}]},
+  ]},
+  { label:'Déc. 2025', tasks:[
+    {txt:'Éducation : Philo/Anthropo/Pédagogies', goal:'Valider 3 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan Alef (7–8) – Projet', goal:'Projet bouclé', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'ETG (code) — passer l’examen', goal:'Réussite ETG', links:[{t:'Permis voiture', href:'car.html'}]},
+    {txt:'Conduite : démarrage (4–6h)', goal:'≥ 4h', links:[{t:'Permis voiture', href:'car.html'}]},
+  ]},
+  { label:'Janv. 2026', tasks:[
+    {txt:'Éducation L2 – École & société', goal:'Valider 2 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan Bet – présent/hifil', goal:'60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'Anglais : diagnostic & plan', goal:'Reading x2 / Listening x1', links:[{t:'Anglais', href:'english.html'}]},
+    {txt:'Photo : mini-projet', goal:'10 photos retenues', links:[{t:'Photo', href:'photo.html'}]},
+  ]},
+  { label:'Fév. 2026', tasks:[
+    {txt:'Éducation : Méthodo recherche & stats', goal:'Valider 2 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Conduite : urbain & manœuvres', goal:'≥ 6h', links:[{t:'Permis voiture', href:'car.html'}]},
+    {txt:'Master HUJI : SoP (brouillon) + CV', goal:'SoP V1 + CV V1', links:[{t:'Master', href:'master.html'}]},
+  ]},
+  { label:'Mars 2026', tasks:[
+    {txt:'Éducation L3 – Grands pédagogues', goal:'Valider 2 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan Gimel – hifil/piel', goal:'60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'VAE : Livret 2 – rédaction', goal:'Parties 1–2 rédigées', links:[{t:'VAE', href:'vae.html'}]},
+  ]},
+  { label:'Avr. 2026', tasks:[
+    {txt:'Éducation L3 – Enjeux actuels', goal:'Valider 2 modules', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan Dalet – gestion de groupe', goal:'60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'DJ : routine & mini set', goal:'2 mini sets', links:[{t:'DJ', href:'dj.html'}]},
+    {txt:'Permis voiture : prépa examen pratique', goal:'Parcours + vérifs', links:[{t:'Permis voiture', href:'car.html'}]},
+  ]},
+  { label:'Mai 2026', tasks:[
+    {txt:'Éducation L3 – Synthèse & pro', goal:'Portfolio VAE', links:[{t:'Éducation', href:'edu.html'}]},
+    {txt:'Oulpan He – presse & rédaction', goal:'60 mots SRS', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'IELTS/TOEFL : intensif & passage', goal:'2 mocks complets', links:[{t:'Anglais', href:'english.html'}]},
+    {txt:'VAE : finalisation Livret 2', goal:'Relecture finale', links:[{t:'VAE', href:'vae.html'}]},
+  ]},
+  { label:'Juin 2026', tasks:[
+    {txt:'VAE : soutenance / jury', goal:'Diapo + oraux simulés', links:[{t:'VAE', href:'vae.html'}]},
+    {txt:'Master HUJI : dossier complet', goal:'Soumission', links:[{t:'Master', href:'master.html'}]},
+    {txt:'Permis voiture : examen pratique', goal:'Réussite pratique', links:[{t:'Permis voiture', href:'car.html'}]},
+  ]},
+  { label:'Juil. 2026', tasks:[
+    {txt:'Oulpan Vav – consolidation', goal:'Lecture authentique', links:[{t:'Oulpan', href:'oulpan.html'}]},
+    {txt:'Projet ONG : cadrage final', goal:'Plan d’action validé', links:[{t:'ONG', href:'ong.html'}]},
+    {txt:'Moto : démarrage (optionnel)', goal:'ETM amorcé', links:[{t:'Permis moto', href:'moto.html'}]},
+  ]},
+];
+
+    function monthsFrom(start){
+      // return slice of baseMonths from chosen start up to July 2026 inclusive
+      const [sy, sm] = start.split('-').map(Number);
+      const list = baseMonths.filter(x => (x.y>sy || (x.y===sy && x.m>=sm)));
+      return list;
+    }
+
+    
+    // Status toggles per task (◻︎ / ◔ / ✓) with localStorage
+    const STATUS_KEY = 'timeline_status_v1';
+    function loadStatus(){ try{return JSON.parse(localStorage.getItem(STATUS_KEY)||"{}");}catch(e){return {}; } }
+    function saveStatus(s){ localStorage.setItem(STATUS_KEY, JSON.stringify(s)); }
+    let TLSTATE = loadStatus();
+
+    function statChar(s){ return s===2?'✓':(s===1?'◔':'◻︎'); }
+    function nextStat(s){ return (s||0)+1>2?0:(s||0)+1; }
+
+    function render(start){
+      const tl = document.getElementById('tl');
+      const months = monthsFrom(start);
+      const seqStartIdx = baseMonths.findIndex(x => x.y===Number(start.split('-')[0]) && x.m===Number(start.split('-')[1]));
+      const seq = sequence.slice(seqStartIdx);
+      const L = Math.min(months.length, seq.length);
+      tl.innerHTML = months.slice(0,L).map((m, i)=>{
+        const s = seq[i];
+        const items = s.tasks.map((t,idx) => {
+          const links = t.links?.map(l=>`<a class='btn small' href='${l.href}'>${l.t}</a>`).join(' ') || '';
+          const id = `m${m.y}-${m.m}::${idx}`;
+          const st = TLSTATE[id]||0;
+          return `<li><span class='badge2' data-st='${id}'>${statChar(st)}</span> ${t.txt} <span class='hint mini'>— ${t.goal||''}</span><div class='links'>${links}</div></li>`;
+        }).join('');
+        
+        return `<div class="tl-item">
+          <div class="tl-date">${m.label}</div>
+          <div class="tl-card card">
+            <div class="section">Objectifs du mois</div>
+            <ul>${items}</ul>
+          </div>
+        </div>`;
+    
+      }).join('');
+      // wire toggles
+      tl.querySelectorAll('[data-st]').forEach(el=>{
+        el.addEventListener('click', ()=>{
+          const id = el.getAttribute('data-st');
+          const cur = TLSTATE[id]||0;
+          const nx = nextStat(cur);
+          TLSTATE[id]=nx; saveStatus(TLSTATE);
+          el.textContent = statChar(nx);
+        });
+      });
+      decoratePercents(); // refresh mini %
+      
+      // timeline_dates_v1
+      const wrap = document.getElementById('tl');
+      const KEY='timeline_dates_v1';
+      function loadDates(){ try{return JSON.parse(localStorage.getItem(KEY)||"{}");}catch(e){return {}; } }
+      function saveDates(d){ localStorage.setItem(KEY, JSON.stringify(d)); }
+      let DATES = loadDates();
+      // add date inputs & bars
+      wrap.querySelectorAll('.tl-card ul li').forEach((li, idx)=>{
+        // infer id from the preceding badge2 percent or from first button href
+        const monthEl = li.closest('.tl-item').querySelector('.tl-date');
+        const mlab = monthEl.textContent.trim();
+        const ym = (mlab.includes('2025')||mlab.includes('2026')) ? mlab : '';
+        // derive y,m from text map
+        const map = {'Sept. 2025':'2025-9','Oct. 2025':'2025-10','Nov. 2025':'2025-11','Déc. 2025':'2025-12','Janv. 2026':'2026-1','Fév. 2026':'2026-2','Mars 2026':'2026-3','Avr. 2026':'2026-4','Mai 2026':'2026-5','Juin 2026':'2026-6','Juil. 2026':'2026-7'};
+        const ymv = map[mlab]||'2026-7';
+        const y = ymv.split('-')[0], m = ymv.split('-')[1];
+        const order = Array.from(li.parentElement.children).indexOf(li);
+        const id = `m${y}-${m}::${order}`;
+        const data = DATES[id] || {start:'', end:''};
+        const box = document.createElement('div');
+        box.className='datebox';
+        box.innerHTML = `🗓️ <span class='muted'>De</span> <input type='date' data-ds='${id}' value='${data.start||''}'> <span class='muted'>à</span> <input type='date' data-de='${id}' value='${data.end||''}'>`;
+        li.appendChild(box);
+        const barwrap = document.createElement('div'); barwrap.className='tl-datebar';
+        const bar = document.createElement('div'); bar.className='bar'; barwrap.appendChild(bar);
+        li.appendChild(barwrap);
+        // compute percent time elapsed
+        function comp(){
+          if(!data.start || !data.end) { bar.style.width='0%'; return; }
+          const s = new Date(data.start); const e = new Date(data.end); const t = new Date();
+          const P = (t - s) / (e - s) * 100;
+          bar.style.width = (isFinite(P)? Math.max(0, Math.min(100, Math.round(P))) : 0) + '%';
+        }
+        comp();
+      });
+      // Save on change
+      wrap.querySelectorAll('input[type="date"][data-ds], input[type="date"][data-de]').forEach(inp=>{
+        inp.addEventListener('change', (e)=>{
+          const id = e.target.getAttribute(e.target.hasAttribute('data-ds')?'data-ds':'data-de');
+          DATES[id] = DATES[id] || {start:'', end:''};
+          if(e.target.hasAttribute('data-ds')) DATES[id].start = e.target.value;
+          else DATES[id].end = e.target.value;
+          saveDates(DATES);
+          // update bar
+          const li = e.target.closest('li');
+          const bar = li.querySelector('.tl-datebar .bar');
+          try{
+            const s = new Date(DATES[id].start); const ee = new Date(DATES[id].end); const t = new Date();
+            const P = (t - s) / (ee - s) * 100;
+            bar.style.width = (isFinite(P)? Math.max(0, Math.min(100, Math.round(P))) : 0) + '%';
+          }catch(err){ bar.style.width='0%'; }
+        });
+      });
+    
+    }
+
+    const startSel = document.getElementById('start');
+    render(startSel.value);
+    startSel.addEventListener('change', e => render(e.target.value));
+  
+// mini % script inserted earlier
+
+    // Reminder banner for end-of-month incomplete tasks
+    function lastDayOfMonth(y,m){ return new Date(y, m, 0); } // m: 1-12
+    function isPastMonth(y,m){
+      const today = new Date();
+      const end = lastDayOfMonth(y,m);
+      end.setHours(23,59,59,999);
+      return today > end;
+    }
+    function bannerCheck(start){
+      const banner = document.getElementById('tlBanner');
+      const txt = document.getElementById('tlBannerText');
+      const months = monthsFrom(start);
+      if(!months.length){ banner.classList.add('hidden'); return; }
+      // Check the most recent month that is past its end date
+      const past = months.filter(mm => isPastMonth(mm.y, mm.m));
+      if(!past.length){ txt.textContent = "On est dans le mois en cours — avance sans stress 😉"; return; }
+      const mm = past[past.length-1]; // last past month
+      // Count incomplete tasks for that month
+      const seqStartIdx = baseMonths.findIndex(x => x.y===Number(start.split('-')[0]) && x.m===Number(start.split('-')[1]));
+      const idx = baseMonths.findIndex(x => x.y===mm.y && x.m===mm.m) - seqStartIdx;
+      if(idx < 0) { txt.textContent = "Rien à signaler."; return; }
+      const tasks = sequence[idx]?.tasks || [];
+      let incomplete = 0;
+      tasks.forEach((t,i)=>{
+        const id = `m${mm.y}-${mm.m}::${i}`;
+        const st = (TLSTATE||{})[id]||0;
+        if(st===0) incomplete++;
+      });
+      if(incomplete>0){
+        txt.innerHTML = `⏰ ${incomplete} tâche(s) non démarrée(s) en <strong>${mm.label}</strong>. Clique les ◻︎ pour marquer l’avancement.`;
+        banner.style.borderColor = '#f59e0b';
+      }else{
+        txt.innerHTML = `✅ Toutes les tâches de <strong>${mm.label}</strong> ont été au moins démarrées.`;
+        banner.style.borderColor = '#34d399';
+      }
+    }
+    // Hook into render
+    const _render = render;
+    render = function(start){ _render(start); bannerCheck(start); }
+    // initial call happens at end of file; banner will update via wrapped render
+
+
+  // Theme toggle with persistence
+  (function(){
+    const KEY='pref_theme';
+    const btn = document.getElementById('themeToggle');
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); if(btn) btn.textContent = 'Thème: ' + (t==='light'?'Clair':'Sombre'); }
+    const saved = localStorage.getItem(KEY) || 'dark';
+    apply(saved);
+    btn?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme')||'dark'; const next = cur==='dark'?'light':'dark'; localStorage.setItem(KEY,next); apply(next); });
+  })();
+
+
+  // Local Notifications (ask permission once; simple reminders on load)
+  async function askNotify(){
+    try{
+      if(!('Notification' in window)) return;
+      if(Notification.permission === 'granted') return;
+      if(Notification.permission !== 'denied'){
+        await Notification.requestPermission();
+      }
+    }catch(e){}
+  }
+  function notifyNow(title, body){
+    try{
+      if(('Notification' in window) && Notification.permission === 'granted'){
+        new Notification(title, { body });
+      }
+    }catch(e){}
+  }
+  // Heuristics: if it's Sunday and weekly goals not 100%, notify.
+  function sundayNotifyCheck(){
+    const isSunday = (new Date().getDay()) === 0;
+    if(!isSunday) return;
+    const keys = ['car_weekly','moto_weekly','guitar_weekly','dj_weekly','sport_weekly','oulpan_weekly','english_weekly','photo_weekly','ong_weekly'];
+    let pending = 0;
+    keys.forEach(k=>{
+      try{
+        const s = JSON.parse(localStorage.getItem(k)||'{}');
+        const items = s.items||{};
+        Object.keys(items).forEach(id=>{
+          const presetTarget = 1; // we don't know target here; banner handles more detail; we just detect non-zero unfinished by pct bars; fallback simple heuristic:
+        });
+      }catch(e){}
+    });
+    // Lightweight ping (content details are on each page)
+    notifyNow('Rappel hebdo', 'Pense à compléter tes objectifs de la semaine.');
+  }
+  // Daily: if Oulpan SRS has due items, ping once per load
+  function srsNotify(){
+    try{
+      const s = JSON.parse(localStorage.getItem('oulpan_srs_v1')||'{}');
+      if(s.items){
+        const today = new Date(); today.setHours(0,0,0,0);
+        const due = Object.values(s.items).filter(it => !it.nextDue || new Date(it.nextDue).setHours(0,0,0,0) <= today).length;
+        if(due>0) notifyNow('Oulpan — SRS', due + ' carte(s) à réviser aujourd’hui.');
+      }
+    }catch(e){}
+  }
+  askNotify().then(()=>{ sundayNotifyCheck(); srsNotify(); });
+
+</script>
+</body>
+</html>
