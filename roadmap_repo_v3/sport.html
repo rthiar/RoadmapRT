@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road map – Sport & santé</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1><img src="assets/img/logo.svg" alt="" style="vertical-align:middle;margin-right:.5rem"/>Road map – Sport & santé</h1>
+      <nav>
+    <a class="navlink " href="index.html">Accueil</a>
+    <a class="navlink " href="edu.html">Sciences de l’éducation</a>
+    <a class="navlink " href="oulpan.html">Oulpan hébreu</a>
+    <a class="navlink " href="vae.html">VAE Paris 8</a>
+    <a class="navlink " href="master.html">Candidature Master (HUJI)</a>
+    <a class="navlink " href="ong.html">Projet ONG</a>
+    <a class="navlink active" href="sport.html">Sport & santé</a>
+    <a class="navlink " href="english.html">Anglais</a>
+    <a class="btn" id="exportCSV">Exporter progression (CSV)</a>
+        <a class="navlink {car}" href="car.html">Permis voiture</a>
+    <a class="navlink {moto}" href="moto.html">Permis moto</a>
+    <a class="navlink {photo}" href="photo.html">Photographie</a>
+    <a class="navlink {guitar}" href="guitar.html">Guitare</a>
+    <a class="navlink {dj}" href="dj.html">DJ / Platines</a>
+</nav>
+    </div>
+  </header>
+  <main>
+  
+<div class="subtitle">Sport & santé – habitudes hebdomadaires (cardio, force, mobilité)</div>
+<div class="card">
+  <div class="month"><h2>Trackeur hebdo</h2><span class="badge">Habits</span></div>
+  <div style="display:grid; grid-template-columns: 1fr repeat(7, 1fr); gap:.4rem; align-items:center" id="habitGrid">
+    <strong>Semaine</strong>
+    <div class="btn small day" data-day="Lun">Lun</div>
+    <div class="btn small day" data-day="Mar">Mar</div>
+    <div class="btn small day" data-day="Mer">Mer</div>
+    <div class="btn small day" data-day="Jeu">Jeu</div>
+    <div class="btn small day" data-day="Ven">Ven</div>
+    <div class="btn small day" data-day="Sam">Sam</div>
+    <div class="btn small day" data-day="Dim">Dim</div>
+  </div>
+  <div class="card-tools"><a class="btn small" id="habitReset">Réinitialiser</a></div>
+</div>
+<script type="module">
+  import { loadProgress, saveProgress } from './assets/js/app.js';
+  const KEY='sport_progress';
+  const grid = document.getElementById('habitGrid');
+  let STATE = loadProgress(KEY);
+  function render(){ grid.querySelectorAll('.day').forEach(d=>{ d.classList.toggle('active', !!STATE[d.dataset.day]); }); }
+  grid.querySelectorAll('.day').forEach(d=> d.addEventListener('click', ()=>{ STATE[d.dataset.day]=!STATE[d.dataset.day]; saveProgress(KEY, STATE); render(); }));
+  document.getElementById('habitReset').addEventListener('click', ()=>{ STATE={}; saveProgress(KEY, STATE); render(); });
+  render();
+</script>
+
+  </main>
+  <footer>Conçu pour Ruben • © 2025</footer>
+  <script type="module">
+    import { setActiveNav, exportAllCSV } from './assets/js/app.js';
+    setActiveNav('sport.html');
+    document.getElementById('exportCSV').addEventListener('click', ()=>{
+      exportAllCSV('progression.csv',[
+        {key:'edu_progress', label:'Education'},
+        {key:'oulpan_progress', label:'Oulpan'},
+        {key:'vae_progress', label:'VAE'},
+        {key:'master_progress', label:'Master'},
+        {key:'ong_progress', label:'ONG'},
+        {key:'sport_progress', label:'Sport'},
+        {key:'english_progress', label:'English'},
+        {key:'car_progress', label:'Permis voiture'},
+        {key:'moto_progress', label:'Permis moto'},
+        {key:'photo_progress', label:'Photo'},
+        {key:'guitar_progress', label:'Guitare'},
+        {key:'dj_progress', label:'DJ'}
+      ]);
+    });
+  </script>
+  
+</body>
+</html>

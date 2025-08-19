@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road map</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1><img src="assets/img/logo.svg" alt="" style="vertical-align:middle;margin-right:.5rem"/>Road map</h1>
+      <nav>
+    <a class="navlink active" href="index.html">Accueil</a>
+    <a class="navlink " href="edu.html">Sciences de l’éducation</a>
+    <a class="navlink " href="oulpan.html">Oulpan hébreu</a>
+    <a class="navlink " href="vae.html">VAE Paris 8</a>
+    <a class="navlink " href="master.html">Candidature Master (HUJI)</a>
+    <a class="navlink " href="ong.html">Projet ONG</a>
+    <a class="navlink " href="sport.html">Sport & santé</a>
+    <a class="navlink " href="english.html">Anglais</a>
+    <a class="btn" id="exportCSV">Exporter progression (CSV)</a>
+        <a class="navlink {car}" href="car.html">Permis voiture</a>
+    <a class="navlink {moto}" href="moto.html">Permis moto</a>
+    <a class="navlink {photo}" href="photo.html">Photographie</a>
+    <a class="navlink {guitar}" href="guitar.html">Guitare</a>
+    <a class="navlink {dj}" href="dj.html">DJ / Platines</a>
+</nav>
+    </div>
+  </header>
+  <main>
+  
+<div class="subtitle">Vue d’ensemble 2025–2026 • Résumé des objectifs et progression</div>
+<div class="grid">
+  <div class="card">
+    <div class="month"><h2>Sciences de l’éducation (L1→L3)</h2></div>
+    <div class="barwrap"><div class="bar" id="kpiEdu"></div></div>
+    <div class="muted" id="kpiEduText">0%</div>
+    <a class="btn" href="edu.html">Ouvrir</a>
+  </div>
+  <div class="card">
+    <div class="month"><h2>Oulpan hébreu (Alef→Vav)</h2></div>
+    <div class="barwrap"><div class="bar" id="kpiOulpan"></div></div>
+    <div class="muted" id="kpiOulpanText">0%</div>
+    <a class="btn" href="oulpan.html">Ouvrir</a>
+  </div>
+  <div class="card">
+    <div class="month"><h2>VAE Paris 8</h2></div>
+    <ul>
+      <li>📄 Livret 1</li>
+      <li>📚 Livret 2</li>
+      <li>🗣️ Jury (juin 2026)</li>
+    </ul>
+    <a class="btn" href="vae.html">Ouvrir</a>
+  </div>
+  <div class="card">
+    <div class="month"><h2>Master Hebrew University</h2></div>
+    <ul>
+      <li>🧾 Dossier & lettres</li>
+      <li>📝 SoP</li>
+      <li>🇬🇧 Preuve d’anglais</li>
+    </ul>
+    <a class="btn" href="master.html">Ouvrir</a>
+  </div>
+
+<div class="card">
+  <div class="month"><h2>Permis voiture</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiCar"></div></div>
+  <div class="muted" id="kpiCarText">0%</div>
+  <a class="btn" href="car.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>Permis moto</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiMoto"></div></div>
+  <div class="muted" id="kpiMotoText">0%</div>
+  <a class="btn" href="moto.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>Photographie</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiPhoto"></div></div>
+  <div class="muted" id="kpiPhotoText">0%</div>
+  <a class="btn" href="photo.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>Guitare</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiGuitar"></div></div>
+  <div class="muted" id="kpiGuitarText">0%</div>
+  <a class="btn" href="guitar.html">Ouvrir</a>
+</div>
+<div class="card">
+  <div class="month"><h2>DJ / Platines</h2></div>
+  <div class="barwrap"><div class="bar" id="kpiDj"></div></div>
+  <div class="muted" id="kpiDjText">0%</div>
+  <a class="btn" href="dj.html">Ouvrir</a>
+</div>
+
+</div>
+<script type="module">
+  // Light KPI read from localStorage
+  function pct(key){ try{{ const m=JSON.parse(localStorage.getItem(key)||"{{}}"); const vs=Object.values(m); if(!vs.length) return 0; const d=vs.filter(Boolean).length; return Math.round(d*100/vs.length); }}catch(e){{ return 0; }}}
+  const e = pct('edu_progress'); document.getElementById('kpiEdu').style.width=e+'%'; document.getElementById('kpiEduText').textContent=e+'%';
+  const o = pct('oulpan_progress'); document.getElementById('kpiOulpan').style.width=o+'%'; document.getElementById('kpiOulpanText').textContent=o+'%';
+  const c = pct('car_progress'); document.getElementById('kpiCar').style.width=c+'%'; document.getElementById('kpiCarText').textContent=c+'%';
+  const m = pct('moto_progress'); document.getElementById('kpiMoto').style.width=m+'%'; document.getElementById('kpiMotoText').textContent=m+'%';
+  const p = pct('photo_progress'); document.getElementById('kpiPhoto').style.width=p+'%'; document.getElementById('kpiPhotoText').textContent=p+'%';
+  const g = pct('guitar_progress'); document.getElementById('kpiGuitar').style.width=g+'%'; document.getElementById('kpiGuitarText').textContent=g+'%';
+  const dj = pct('dj_progress'); document.getElementById('kpiDj').style.width=dj+'%'; document.getElementById('kpiDjText').textContent=dj+'%';
+</script>
+
+  </main>
+  <footer>Conçu pour Ruben • © 2025</footer>
+  <script type="module">
+    import { setActiveNav, exportAllCSV } from './assets/js/app.js';
+    setActiveNav('index.html');
+    document.getElementById('exportCSV').addEventListener('click', ()=>{
+      exportAllCSV('progression.csv',[
+        {key:'edu_progress', label:'Education'},
+        {key:'oulpan_progress', label:'Oulpan'},
+        {key:'vae_progress', label:'VAE'},
+        {key:'master_progress', label:'Master'},
+        {key:'ong_progress', label:'ONG'},
+        {key:'sport_progress', label:'Sport'},
+        {key:'english_progress', label:'English'},
+        {key:'car_progress', label:'Permis voiture'},
+        {key:'moto_progress', label:'Permis moto'},
+        {key:'photo_progress', label:'Photo'},
+        {key:'guitar_progress', label:'Guitare'},
+        {key:'dj_progress', label:'DJ'}
+      ]);
+    });
+  </script>
+  
+</body>
+</html>
